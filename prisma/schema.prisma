@@ -18,3 +18,13 @@ seeker
 provider
 admin
 }
+model User {
+  userid    Int     @id @default(autoincrement())
+  firstname  String
+  email String  @unique
+  lastname  String
+  role role
+  password String
+  image Bytes
+  createdTime DateTime @default(now())
+}
