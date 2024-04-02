@@ -12,4 +12,9 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
-
+//define enums
+enum role {
+seeker
+provider
+admin
+}
