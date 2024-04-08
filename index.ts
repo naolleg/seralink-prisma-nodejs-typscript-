@@ -6,7 +6,6 @@ dotenv.config();
 
 console.log();
 
-
 const app = express();
 //middleware
 app.use(bodyParser.json());
@@ -14,11 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //app.use(indexroute);
 
-
-
-const PORT=process.env.PORT || 3033;
+const PORT =  3033;
 
 app.listen(PORT, function () {
     console.log(`Server listening on port ${PORT}`);
 });
-
