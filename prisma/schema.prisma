@@ -28,13 +28,3 @@ model User {
   image Bytes
   createdTime DateTime @default(now())
 }
-modelmodel job {
-  jobid    Int     @id @default(autoincrement())
-  firstname  String
-  email String  @unique
-  lastname  String
-  role role
-  password String
-  image Bytes
-  createdTime DateTime @default(now())
-}
