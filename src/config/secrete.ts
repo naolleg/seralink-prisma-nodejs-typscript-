@@ -5,5 +5,5 @@ env.config();
 const PORT = process.env.PORT || 8888;
 const DATABASE_URL = process.env.DATABASE_URL;
 
-module.exports={PORT,JWT_SECRET,DATABASE_URL};
+module.exports={PORT,DATABASE_URL};
 
