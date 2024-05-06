@@ -1,37 +1,29 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-const prisma = require("./prisma");
-const { Request, Response } = require("express");
-const AdminSchema = require('./adminSchema');
+import {prisma} from "../../config/prisma";
+import { Request, Response } from "express";
+//import AdminSchema from './adminSchema';
+
 const admincontroller = {
-    login: (req, res) => {
+    login: (req:Request, res:Response) => {
         console.log(req.body);
     },
-    register: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    register: async (req:Request, res:Response) => {
         console.log(req.body);
         //validate 
         AdminSchema.register.parse(req.body);
         //check email
-        // const isEmailExist = yield prisma.({
-        //     where: {
-        //         email: req.body.email
-        //     }
-        // });
+        const isEmailExist = await prisma.({
+            where: {
+                email: req.body.email
+            }
+        });
         if (isEmailExist) {
             return res.status(403).json({
                 success: false,
                 message: "email is all ready in used"
             });
         }
-        const newUser = yield prisma.users;
+        const newUser = await prisma.users;
         // const newUser = await prisma.users.create({
         //     data: {
         //         email: req.body.email,
@@ -58,7 +50,7 @@ const admincontroller = {
         //         }
         //     }
         // })
-        const userSelect = yield prisma.users.findMa({
+        const userSelect = await prisma.users.findMa({
             where: {
                 role: req.body.role
             },
@@ -68,6 +60,7 @@ const admincontroller = {
                 }
             }
         });
-    })
+    }
 };
-module.exports = admincontroller;
+
+export default admincontroller;
