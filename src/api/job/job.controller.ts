@@ -1,7 +1,6 @@
-import jobService from "../services/job.service";
-
+import { Request, Response } from "express";
 const jobController = {
-  createPost: async (req, res) => {
+  createPost: async (req:Request, res:Response) => {
     try {
       const {
         title,
