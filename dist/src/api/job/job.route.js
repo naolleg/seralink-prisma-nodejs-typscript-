@@ -1,13 +1,10 @@
-import express from 'express';
-import { Router } from 'express';
-import jobcontroller from './job.controller';
-
-const jobRoute = Router();
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const jobRoute = (0, express_1.Router)();
 jobRoute.get('/', (req, res) => {
-  res.send('Hello, World!');
+    res.send('Hello, World!');
 });
-
 // jobRoute.get('/seeker', jobcontroller.getallposts);
 //jobRoute.get('/posts', jobcontroller.getallposts);
 // jobRoute.get('/providers/posts', jobcontroller.getposts);
@@ -15,5 +12,4 @@ jobRoute.get('/', (req, res) => {
 //jobRoute.post('/posts', jobcontroller.createpost);
 // jobRoute.delete('/provider/posts/:id', jobcontroller.deletepost);
 // jobRoute.put('/api/posts/:id', jobController.updatepost);
-
-export default jobRoute;
+exports.default = jobRoute;
