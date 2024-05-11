@@ -58,15 +58,10 @@ const admincontroller = {
         //         }
         //     }
         // })
-        const userSelect = yield prisma_1.prisma.users.findMa({
+        const userSelect = yield prisma_1.prisma.users.findFirst({
             where: {
                 role: req.body.role
             },
-            include: {
-                profile: {
-                    firstName: true
-                }
-            }
         });
     })
 };

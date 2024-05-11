@@ -50,17 +50,11 @@ const admincontroller = {
         //         }
         //     }
         // })
-        const userSelect = await prisma.users.findMa({
+        const userSelect = await prisma.users.findFirst({
             where: {
                 role: req.body.role
             },
-            include: {
-                profile: {
-                    firstName: true
-                }
-            }
-        });
-    }
-};
-
+           
+        })
+    }}
 export default admincontroller;
