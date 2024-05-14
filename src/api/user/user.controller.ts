@@ -12,14 +12,14 @@ const usersController = {
     
       userSchema.login.parse(req.body);
       console.log(req.body);
-      const user = await prisma.user.findFirst({
-        where: { username: req.body.username },
+      const user = await prisma.users.findFirst({
+        where: { email: req.body.email },
       });
          console.log(user);
          
       if (!user) {
         return res.status(401).json({
-          message: "Invalid username or password",
+          message: "Invalid email",
           success: false,
         });
       }
@@ -28,19 +28,19 @@ const usersController = {
       if (!isMatch) {
         return res.status(401).json({
           success:false,
-          message: "Invalid username or password",
+          message: "Invalid password",
         });
       }
 
       const userProfile = await prisma.profile.findFirst({
-        where: { user_id: user.id },
+        where: { userId: user.id },
       });
 
       // Create token
       const payload = {
         id: user.id,
         role: user.role,
-        firstName: userProfile?.firstname,
+        firstName: userProfile?.fname,
       };
       const token = jwt.sign(payload, SECRET!);
 
@@ -52,12 +52,12 @@ const usersController = {
     
   },
   myInfo: async (req: Request, res: Response) => {
-    const user = await prisma.user.findFirst({
-      where: { id:req.userId },
+    const user = await prisma.users.findFirst({
+      where: { id:req.userid },
       include: {
         _count: true,
-        profiles: true,
-        mothers:{
+        profile: true,
+          :{
         include:{
            child:true,
           
