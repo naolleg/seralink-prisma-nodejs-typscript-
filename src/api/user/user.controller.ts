@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { prisma } from "../../config/prisma";
-import userSchema from "./user.schema.js";
+import userSchema from "./user.schema";
 import bcrypt from "bcrypt";
 import { SECRET } from "../../config/secrete";
 
