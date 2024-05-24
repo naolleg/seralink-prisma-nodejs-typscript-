@@ -61,7 +61,7 @@ const usersController = {
           
         }
       
-    );
+  });
     res.status(200).json({ success: true,
       message: "found successfully",user});
   },
@@ -87,7 +87,7 @@ const usersController = {
     }
     req.body.newPasswod = bcrypt.hashSync(req.body.newPasswod, 10);
     //update password
-    const updatedPassword = await prisma.user.update({
+    const updatedPassword = await prisma.users.update({
       where: { id: req.user!.id },
       data: { password: req.body.newPasswod },
     });
@@ -132,7 +132,7 @@ const usersController = {
       });
     }
     const { otp } = req.body;
-    if (otp != user.otp) {
+    if (otp != user.) {
       return res.status(401).json({success: false,
         message: "Invalid OTP"
       });

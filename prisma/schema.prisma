@@ -33,6 +33,11 @@ model Users {
   password  String
   role      ROLE
   createdAt DateTime @default(now())
+  //otp
+   otp String?
+    otpCreatedAt DateTime? @default(now())
+    otpExpiry DateTime? @default(now())
+
 
   profile   Profile?  
   professionalProfile ProfessionalProfile? 
