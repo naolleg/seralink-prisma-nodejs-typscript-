@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const prisma_js_1 = require("../../config/prisma.js");
 const jobController = {
     createPost: (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const newjob = yield prisma_js_1.prisma;
+        const newjob = yield prisma_js_1.prisma.job.create({});
     })
 };
 exports.default = jobController;
