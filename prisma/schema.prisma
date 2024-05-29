@@ -71,7 +71,7 @@ model ProfessionalProfile {
 model OrgProfile {
   id        Int      @id @default(autoincrement())
   userId    Int@unique
-  name      String
+  orgName      String
   tinNumber String?
   type      String
   sector    String
