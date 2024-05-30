@@ -132,7 +132,7 @@ const usersController = {
       });
     }
     const { otp } = req.body;
-    if (otp != user.) {
+    if (otp != user.otp) {
       return res.status(401).json({success: false,
         message: "Invalid OTP"
       });
@@ -152,7 +152,7 @@ const usersController = {
     const payload = {
       id: user.id,
       role: user.role,
-      firstname: user.username
+      email:user.email
     };
     const token = jwt.sign(payload, SECRET!);
     return res.status(200).json({

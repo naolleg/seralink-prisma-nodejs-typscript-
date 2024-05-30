@@ -8,7 +8,7 @@ jobRoute.get('/', (req, res) => {
   res.send('Hello, World!');
 });
 
-// jobRoute.get('/seeker', jobcontroller.getallposts);
+//jobRoute.get('/seeker', jobcontroller.getallposts);
 //jobRoute.get('/posts', jobcontroller.getallposts);
 // jobRoute.get('/providers/posts', jobcontroller.getposts);
 // jobRoute.get('/posts/:id', jobController.getsinglepost);
