@@ -1,5 +1,5 @@
 import { Router } from "express";
-import  errorHandler from "../../middlewares/error.js";
+import  errorHandler from "../../../middleware/error";
 import providerController from "./provider.controller.js";
 const providerRouter = Router();
 providerRouter.post('/',errorHandler(providerController.register));

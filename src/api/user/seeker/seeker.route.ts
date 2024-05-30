@@ -1,5 +1,5 @@
 import { Router } from "express";
-import  errorHandler from "../../middlewares/error.js";
+import  errorHandler from "../../../middleware/error";
 import seekerController from "./seeker.controller.js";
 const seekerRouter = Router();
 seekerRouter.post('/',errorHandler(seekerController.register));
