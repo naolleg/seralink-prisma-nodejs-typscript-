@@ -5,7 +5,7 @@ import { type } from "os";
 const jobController = {
   createPost: async (req:Request, res:Response) => {
    const newjob=await prisma.job.create({
-      data:{
+      data: {
        title:req.body.title,
        category:req.body.category,
        salary:req.body.salary,
@@ -13,8 +13,10 @@ const jobController = {
        qualification:req.body.qualification,
        description :req.body.description,
        orgProfile:{
-        create:{
+         
           type:req.body.type, 
+          
+          
           
         }
 
